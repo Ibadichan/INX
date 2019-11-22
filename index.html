@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>INX</title>
     <link
       rel="stylesheet"
@@ -79,6 +78,78 @@
       </section>
     </main>
 
-    <script src="./js/main.min.js"></script>
+    <!-- <script src="./js/main.min.js"></script> -->
+
+    <script>
+      if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+      }
+
+      function isInViewport(element) {
+        var box = element.getBoundingClientRect();
+
+        return (
+          box.top >= 0 &&
+          box.left >= 0 &&
+          box.bottom <= document.documentElement.clientHeight &&
+          box.right <= document.documentElement.clientWidth
+        );
+      }
+
+      function AnimatableSection(props) {
+        var self = this;
+        self.node = props.node;
+        self.elementsToAnimate = props.elementsToAnimate;
+
+        self.tryToAnimate = function() {
+          if (isInViewport(self.node)) {
+            var node, animationClass;
+
+            self.elementsToAnimate.forEach(function(element) {
+              node = element.node;
+              animationClass = element.animationClass;
+
+              if (node.forEach) {
+                var innerElements = node;
+
+                innerElements.forEach(function(innerElement) {
+                  innerElement.classList.add(animationClass);
+                });
+              } else {
+                node.classList.add(animationClass);
+              }
+            });
+
+            window.removeEventListener("scroll", self.tryToAnimate);
+          }
+        };
+
+        window.addEventListener("scroll", self.tryToAnimate);
+      }
+
+      var newRegulatedStandard = new AnimatableSection({
+        node: document.querySelector(".new-regulated-standard"),
+        elementsToAnimate: [
+          {
+            node: document.querySelectorAll(".head_words-fade-in__text"),
+            animationClass: "head_words-fade-in__text_animated"
+          },
+          {
+            node: document.querySelector(".new-regulated-standard__head"),
+            animationClass: "new-regulated-standard__head_animated"
+          },
+          {
+            node: document.querySelector(".new-regulated-standard__list"),
+            animationClass: "new-regulated-standard__list_animated"
+          },
+          {
+            node: document.querySelector(".new-regulated-standard"),
+            animationClass: "new-regulated-standard_animated_bg"
+          }
+        ]
+      });
+
+      newRegulatedStandard.tryToAnimate();
+    </script>
   </body>
 </html>
