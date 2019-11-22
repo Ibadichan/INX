@@ -633,7 +633,7 @@ input[type="radio"].visually-hidden {
   opacity: 0.5;
 }
 
-@media (min-width: 768px) {
+@media all and (min-width: 768px) {
   .page-header {
     padding: 42px 56px;
   }
@@ -763,7 +763,7 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media (min-width: 992px) {
+@media all and  (min-width: 992px) {
   .page-header_fixed_on-computer {
     position: fixed;
     top: 0;
@@ -828,7 +828,7 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media (min-width: 1200px) {
+@media all and  (min-width: 1200px) {
   .new-regulated-standard__inner {
     margin-left: 210px;
   }
