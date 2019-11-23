@@ -236,7 +236,7 @@ input[type="radio"].visually-hidden {
   opacity: 0.5;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .page-header {
     padding: 42px 56px;
   }
@@ -264,30 +264,29 @@ input[type="radio"].visually-hidden {
   }
 
   .new-regulated-standard__head {
-    opacity: 0;
     font-size: 36px;
     line-height: 46px;
+    opacity: 0;
     transform: translateY(30vh);
-    transition: transform 1.2s 3.6s;
   }
 
   .new-regulated-standard__head_animated {
     opacity: 1;
-    transform: translateY(0);
+    animation-name: head-slide-in;
+    animation-duration: 1.2s;
+    animation-delay: 3.6s;
+    animation-fill-mode: forwards;
   }
 
   .new-regulated-standard__list {
     opacity: 0;
-    transform: translateY(-50px);
-
-    transition-property: opacity, transform;
-    transition-duration: 0.6s, 0.6s;
-    transition-delay: 4.8s, 4.8s;
   }
 
   .new-regulated-standard__list_animated {
-    opacity: 1;
-    transform: translateY(0);
+    animation-name: slide-in-top;
+    animation-duration: 0.6s;
+    animation-delay: 4.8s;
+    animation-fill-mode: forwards;
   }
 
   .new-regulated-standard__item {
@@ -314,27 +313,28 @@ input[type="radio"].visually-hidden {
 
   .head_words-fade-in__text {
     opacity: 0;
-    transition: opacity 1.2s;
   }
 
   .head_words-fade-in__text_animated {
-    opacity: 1;
+    animation-name: fade-in;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
   }
 
   .head_words-fade-in__text_animated:nth-child(1) {
-    transition-delay: 0s;
+    animation-delay: 0s;
   }
 
   .head_words-fade-in__text_animated:nth-child(2) {
-    transition-delay: 1.2s;
+    animation-delay: 1.2s;
   }
 
   .head_words-fade-in__text_animated:nth-child(3) {
-    transition-delay: 2.4s;
+    animation-delay: 2.4s;
   }
 }
 
-@media (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   .page-header_fixed_on-computer {
     position: fixed;
     top: 0;
@@ -358,15 +358,13 @@ input[type="radio"].visually-hidden {
     background: url("../img/chart-bg.png") 0 35px no-repeat;
     background-origin: content-box;
     background-size: cover;
-    transform: translateY(50px);
-    transition-property: opacity, transform;
-    transition-duration: 0.6s, 0.6s;
-    transition-delay: 5.4s, 5.4s;
   }
 
   .new-regulated-standard_animated_bg::after {
-    opacity: 1;
-    transform: translateY(0);
+    animation-name: slide-in-bottom;
+    animation-duration: 0.6s;
+    animation-delay: 5.4s;
+    animation-fill-mode: forwards;
   }
 
   .new-regulated-standard__inner {
@@ -387,7 +385,7 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .new-regulated-standard__inner {
     margin-left: 210px;
   }
@@ -409,5 +407,49 @@ input[type="radio"].visually-hidden {
 
   .new-regulated-standard__info {
     line-height: 22px;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes head-slide-in {
+  0% {
+    transform: translateY(30vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
