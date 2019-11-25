@@ -415,8 +415,9 @@ input[type="radio"].visually-hidden {
   .head_words-fade-in__text,
   .new-regulated-standard__list,
   .new-regulated-standard::after {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
   }
 }
 
