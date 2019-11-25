@@ -328,7 +328,7 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .page-header_fixed_on-computer {
     position: fixed;
     top: 0;
