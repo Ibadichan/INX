@@ -761,7 +761,7 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+/* @media only screen and (min-width: 992px) {
   .page-header_fixed_on-computer {
     position: fixed;
     top: 0;
@@ -793,7 +793,7 @@ input[type="radio"].visually-hidden {
     min-height: 140px;
     background-size: 140px 140px;
   }
-}
+} */
 
 @media only screen and (min-width: 1200px) {
   .new-regulated-standard__inner {
