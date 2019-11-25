@@ -378,7 +378,8 @@ input[type="radio"].visually-hidden {
   }
 }
 
-@media only screen and (min-width: 992px) {
+/* IE 11 hack */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .page-header_fixed_on-computer {
     position: fixed;
     top: 0;
@@ -430,14 +431,54 @@ input[type="radio"].visually-hidden {
 }
 
 @media only screen and (min-width: 1200px) {
+  .page-header_fixed_on-computer {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .new-regulated-standard {
+    min-height: 100vh;
+    padding-top: 134px;
+  }
+
+  .new-regulated-standard::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 60%;
+    height: 100%;
+    opacity: 0;
+    background: url("../img/chart-bg.png") 0 35px no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+  }
+
+  .new-regulated-standard_animated_bg::after {
+    animation-name: slide-in-bottom;
+    animation-duration: 0.6s;
+    animation-delay: 5.4s;
+    animation-fill-mode: forwards;
+  }
+
   .new-regulated-standard__inner {
+    width: auto;
+    margin: 0;
     margin-left: 210px;
   }
 
   .new-regulated-standard__head {
+    margin-bottom: 75px;
     max-width: 850px;
     font-size: 42px;
     line-height: 54px;
+  }
+
+  .new-regulated-standard__item {
+    min-height: 140px;
+    background-size: 140px 140px;
   }
 
   .new-regulated-standard__item:not(:last-child) {
