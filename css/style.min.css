@@ -807,6 +807,18 @@ input[type="radio"].visually-hidden {
   .new-regulated-standard__info {
     line-height: 22px;
   }
+
+  .new-regulated-standard__head {
+    opacity: 0;
+    -webkit-transform: translateY(30vh);
+    -ms-transform: translateY(30vh);
+    transform: translateY(30vh);
+  }
+
+  .new-regulated-standard__list {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
 }
 
 /* @media only screen and (min-width: 992px) {
