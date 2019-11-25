@@ -613,6 +613,7 @@ input[type="radio"].visually-hidden {
 }
 
 .new-regulated-standard::after {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
