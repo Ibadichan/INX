@@ -1,10 +1,14 @@
 function AnimatableSection(props) {
   var self = this;
+  var animationBreakpoint = 768;
   self.node = props.node;
   self.elementsToAnimate = props.elementsToAnimate;
 
   self.tryToAnimate = function() {
-    if (isInViewport(self.node)) {
+    if (
+      isInViewport(self.node) &&
+      getWindowSize().width >= animationBreakpoint
+    ) {
       var node, animationClass;
 
       self.elementsToAnimate.forEach(function(element) {
