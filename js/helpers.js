@@ -1,8 +1,11 @@
+"use strict";
+
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
 function isInViewport(element) {
+  // fix this method if section is overflowed
   var box = element.getBoundingClientRect();
 
   return (
@@ -33,7 +36,15 @@ function getWindowSize() {
   );
 
   return {
-    height,
-    width
+    height: height,
+    width: width
   };
+}
+
+function emToPx(em) {
+  var fontSize = window
+    .getComputedStyle(document.body, null)
+    .getPropertyValue("font-size");
+  var px = parseFloat(fontSize) * em;
+  return px;
 }

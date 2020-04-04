@@ -1,3 +1,5 @@
+"use strict";
+
 var newRegulatedStandard = new AnimatableSection({
   node: document.querySelector(".new-regulated-standard"),
   elementsToAnimate: [

@@ -1,6 +1,8 @@
+"use strict";
+
 function AnimatableSection(props) {
   var self = this;
-  var animationBreakpoint = 768;
+  var animationBreakpoint = emToPx(48); // in EM units
   self.node = props.node;
   self.elementsToAnimate = props.elementsToAnimate;
 
